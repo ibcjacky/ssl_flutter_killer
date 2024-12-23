@@ -1,4 +1,4 @@
-pip install import r2pipe
+pip install r2pipe
 
 Use the path of libflutter.so
 
