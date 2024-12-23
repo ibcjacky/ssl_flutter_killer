@@ -3,7 +3,7 @@ import sys
 
 def main():
     if len(sys.argv) < 2:
-        print("[ * ] User the path of libflutter.so\n    example: ssl_flutter_killer.py ~/libflutter.so")
+        print("[ * ] Use the path of libflutter.so\n    example: ssl_flutter_killer.py ~/libflutter.so")
         sys.exit(1)
     analyse(sys.argv[1])
 
