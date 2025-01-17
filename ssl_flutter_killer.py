@@ -1,11 +1,14 @@
+# -*- coding: utf-8 -*-
 import r2pipe
 import sys
+
 
 def main():
     if len(sys.argv) < 2:
         print("[ * ] Use the path of libflutter.so\n    example: ssl_flutter_killer.py ~/libflutter.so")
         sys.exit(1)
     analyse(sys.argv[1])
+
 
 def create_flutter_native_hook(addr):
     print("[ + ] Creating Frida Script")
@@ -42,9 +45,10 @@ def create_flutter_native_hook(addr):
         }}
     }}
 }});"""
-    with open("ssl_flutter_unpinning.js", "w") as file:
+    with open("ssl_flutter_unpinning.js", "w", encoding="utf-8") as file:
         file.write(conteudo)
         print("[ :D ] ssl_flutter_unpinning.js Created!")
+
 
 def analyse(path):
     r2 = r2pipe.open(path)
@@ -60,6 +64,7 @@ def analyse(path):
             print(f"[ + ] address of target function found @ {function_address}")
             create_flutter_native_hook(function_address)
     r2.quit()
+
 
 if __name__ == "__main__":
     main()
